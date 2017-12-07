@@ -1,0 +1,9 @@
+.container.mt-3
+  %h1.text-center Editing post
+
+  = render 'form'
+
+  %br
+  %div.mb-3
+    = link_to 'Show', @bicycle_path, class: 'btn btn-success mr-3'
+    = link_to 'Back', bicycles_path, class: 'btn btn-primary'

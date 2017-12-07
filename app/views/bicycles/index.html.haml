@@ -1,0 +1,13 @@
+- @bicycles.each do |bike|
+
+  .card.mt-3.ml-3{:style => "width: 20rem;"}
+    %img.card-img-top{:alt => "Card image cap", :src => "https://i5.walmartimages.com/asr/a7e27abf-7a38-4fdb-9492-1eef94d13606_1.344ff1008d0bcaad1c2e805772ea9a3c.jpeg"}/
+    .card-body
+      %h4.card-title 
+        = bike.name
+      %p.card-text 
+        = bike.description
+      %a 
+        = link_to "Show", bicycle_path(bike), class: "btn btn-primary"
+        = link_to 'Edit', edit_bicycle_path(bike), class: 'btn btn-warning'
+  = link_to "New bike", new_bicycle_path, class: 'btn btn-primary mt-2 ml-3'
