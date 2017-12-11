@@ -4,6 +4,7 @@
   .panel-body
     = form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f|
       .form-group
+        = f.file_field :avatar
         = f.label :email
         = f.email_field :email, autofocus: true, class: 'form-control'
       .form-group

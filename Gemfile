@@ -37,6 +37,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem "pry"
 gem 'simple_form'
+gem 'carrierwave'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
