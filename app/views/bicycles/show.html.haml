@@ -1,5 +1,6 @@
 .card.mb-3
-  %img.card-img-top{:alt => "Card image cap", :src => "https://i5.walmartimages.com/asr/a7e27abf-7a38-4fdb-9492-1eef94d13606_1.344ff1008d0bcaad1c2e805772ea9a3c.jpeg"}/
+  - @bicycle.pictures.each do |image|
+    = image_tag image.image_url, width: '410', height: '380'
   .card-body
     %h4.card-title 
       = @bicycle.name
@@ -7,6 +8,6 @@
       = @bicycle.description
     %p.card-text
       %small.text-muted 
-        = time_ago_in_words(@bicycle.updated_at)	        
+        = time_ago_in_words(@bicycle.updated_at)          
 = link_to 'Back', bicycles_path, class: 'btn btn-primary mb-3' 
 = link_to 'Delete', bicycle_path(@bicycle), method: :delete, data: { :confirm => 'Are you sure?' }, class: "btn btn-danger mb-3"         

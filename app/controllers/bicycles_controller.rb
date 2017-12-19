@@ -15,6 +15,7 @@ class BicyclesController < ApplicationController
     # GET /photos/new
     def new
       @bicycle = Bicycle.new
+      @bicycle.pictures.build
     end
 
     # GET /photos/1/edit
@@ -25,12 +26,12 @@ class BicyclesController < ApplicationController
     # POST /photos.json
     def create
       @bicycle = Bicycle.new(bike_params)
-
       respond_to do |format|
         if @bicycle.save
           format.html { redirect_to [@bicycle], notice: 'Bicycle was successfully created.' }
           format.json { render action: 'show', status: :created, location: @bicycle }
         else
+          @bicycle.save!
           format.html { render action: 'new' }
           format.json { render json: @bicycle.errors, status: :unprocessable_entity }
         end
@@ -69,6 +70,6 @@ class BicyclesController < ApplicationController
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def bike_params
-        params.require(:bicycle).permit(:name, :description, :image)
+        params.require(:bicycle).permit(:name, :description, pictures_attributes: [:id, :image_url])
       end
 end

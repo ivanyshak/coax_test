@@ -38,6 +38,7 @@ gem 'bootstrap-sass'
 gem "pry"
 gem 'simple_form'
 gem 'carrierwave'
+gem "cocoon"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
