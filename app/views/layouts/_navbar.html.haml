@@ -5,7 +5,7 @@
     %a.navbar-brand{:href => "/"} COAX
     %ul.navbar-nav.mr-auto.mt-2.mt-lg-0
       %li.nav-item.active
-        %a.nav-link{:href => "bicycles"}
+        %a.nav-link{:href => "#{bicycles_path}"}
           Store
           %span.sr-only (current)
       %li.nav-item
@@ -13,8 +13,9 @@
       %li.nav-item
         %a.nav-link.disabled{:href => "#"} Disabled
     %form.form-inline.my-2.my-lg-0
-      %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
-      %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
+      = form_tag("/bicycles", method: "get") do
+        = text_field_tag :search, params[:search], class: 'form-control mr-sm-2', placeholder: 'Serach'
+        %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
       .nav-item
         - if user_signed_in?
           = link_to "Log out", destroy_user_session_path, :method=>'delete', class: "nav-link" 

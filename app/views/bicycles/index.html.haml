@@ -5,7 +5,9 @@
   .card.mt-3.ml-4.float-left{style: "width: 25rem;"}
     =image_tag bike.pictures.first.image_url, width: '350', height: '320' if bike.pictures.present?
     .card-body
-      %h4.card-title 
+      %h4.card-category
+        = bike.category.name if bike.category.present?
+      %h4.card-title  
         = bike.name
       %a 
         = link_to "Show", bicycle_path(bike), class: "btn btn-primary"
