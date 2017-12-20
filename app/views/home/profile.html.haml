@@ -1,7 +1,7 @@
 .container.mt-2
 	.row
 		.col-4
-			= image_tag current_user.avatar, width: '150', height: '250', class: "rounded mb-3"
+			= image_tag current_user.avatar, width: '150', height: '250', class: "rounded mb-3" if current_user.avatar.present?
 			%br
 			= current_user.full_name
 			%br

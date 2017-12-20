@@ -39,6 +39,7 @@ gem 'simple_form'
 gem 'carrierwave'
 gem "cocoon"
 gem 'country_select'
+gem "pundit"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

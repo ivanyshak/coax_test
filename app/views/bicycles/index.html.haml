@@ -11,4 +11,4 @@
         = bike.name
       %a 
         = link_to "Show", bicycle_path(bike), class: "btn btn-primary"
-        = link_to 'Edit', edit_bicycle_path(bike), class: 'btn btn-warning'
+        = link_to 'Edit', edit_bicycle_path(bike), class: 'btn btn-warning' if policy(bike).edit?

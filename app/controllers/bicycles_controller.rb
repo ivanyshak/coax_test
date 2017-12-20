@@ -5,6 +5,7 @@ class BicyclesController < ApplicationController
     # GET /photos.json
     def index
       @bicycles = Bicycle.search(params[:search])
+      authorize @bicycles
     end
 
     # GET /photos/1
@@ -16,6 +17,7 @@ class BicyclesController < ApplicationController
     def new
       @bicycle = Bicycle.new
       @bicycle.pictures.build
+      authorize @bicycle
     end
 
     # GET /photos/1/edit
@@ -65,6 +67,7 @@ class BicyclesController < ApplicationController
       # Use callbacks to share common setup or constraints between actions.
       def set_bike
         @bicycle = Bicycle.find(params[:id])
+        authorize @bicycle
       end
 
       # Never trust parameters from the scary internet, only allow the white list through.

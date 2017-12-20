@@ -10,4 +10,4 @@
       %small.text-muted 
         = time_ago_in_words(@bicycle.updated_at)          
 = link_to 'Back', bicycles_path, class: 'btn btn-primary mb-3' 
-= link_to 'Delete', bicycle_path(@bicycle), method: :delete, data: { :confirm => 'Are you sure?' }, class: "btn btn-danger mb-3"
+= link_to 'Delete', bicycle_path(@bicycle), method: :delete, data: { :confirm => 'Are you sure?' }, class: "btn btn-danger mb-3" if policy(@bicycle).destroy?
