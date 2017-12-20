@@ -18,3 +18,5 @@
 			-	current_user.bicycles.each do |bike|
 				= link_to bike.name, bicycle_path(bike)
 				%br
+
+			= link_to "New bike", new_bicycle_path, class: 'btn btn-primary mt-2 ml-3'

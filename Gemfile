@@ -40,6 +40,9 @@ gem 'carrierwave'
 gem "cocoon"
 gem 'country_select'
 gem "pundit"
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap4'
+gem "font-awesome-rails"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

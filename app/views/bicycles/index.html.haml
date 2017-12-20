@@ -1,14 +1,17 @@
-= link_to "New bike", new_bicycle_path, class: 'btn btn-primary mt-2 ml-3'
-%br
-- @bicycles.each do |bike|
+.container
+  .row
+    %br
+    - @bicycles.each do |bike|
 
-  .card.mt-3.ml-4.float-left{style: "width: 25rem;"}
-    = link_to image_tag(bike.pictures.first.image_url, width: '350', height: '320'), bicycle_path(bike) if bike.pictures.present?
-    .card-body
-      %h4.card-category
-        = bike.category.name if bike.category.present?
-      %h3.card-title  
-        = bike.name
-      %a 
-        = link_to "Show", bicycle_path(bike), class: "btn btn-primary"
-        = link_to 'Edit', edit_bicycle_path(bike), class: 'btn btn-warning' if policy(bike).edit?
+      .card.mt-3.ml-4.float-left{style: "width: 22rem;"}
+        = link_to image_tag(bike.pictures.first.image_url, width: '250', height: '220'), bicycle_path(bike) if bike.pictures.present?
+        .card-body
+          %h4.card-category
+            = bike.category.name if bike.category.present?
+          %h3.card-title  
+            = bike.name
+          %a 
+            = link_to "Show", bicycle_path(bike), class: "btn btn-primary"
+            = link_to 'Edit', edit_bicycle_path(bike), class: 'btn btn-warning' if policy(bike).edit?
+  .row.mt-3.ml-3         
+    = will_paginate @bicycles, renderer: WillPaginate::ActionView::BootstrapLinkRenderer

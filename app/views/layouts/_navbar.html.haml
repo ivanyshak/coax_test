@@ -19,9 +19,9 @@
       .nav-item
         - if user_signed_in?
           = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
-            %span.glyphicon.glyphicon-log-out
+            %span.fa.fa-sign-out
               Log out 
         - else
           = link_to new_user_session_path, class: 'nav-link' do
-            %span.glyphicon.glyphicon-log-in
+            %span.fa.fa-sign-in
               Log in
