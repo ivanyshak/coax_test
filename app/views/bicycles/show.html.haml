@@ -4,7 +4,12 @@
   .card-body
     %h4.card-title 
       = @bicycle.name
-    %p.card-text
+    %p.author
+      %span Author:
+      %span.font-italic
+        = @bicycle.user.full_name
+    %p.text
+      %h5.font-weight-bold Description:
       = @bicycle.description
     %p.card-text
       %small.text-muted 
