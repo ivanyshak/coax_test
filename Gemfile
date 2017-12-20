@@ -34,11 +34,12 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-gem 'bootstrap-sass'
 gem "pry"
 gem 'simple_form'
 gem 'carrierwave'
 gem "cocoon"
+gem 'country_select'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

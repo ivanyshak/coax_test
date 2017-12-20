@@ -1,0 +1,20 @@
+.container.mt-2
+	.row
+		.col-4
+			= image_tag current_user.avatar, width: '150', height: '250', class: "rounded mb-3"
+			%br
+			= current_user.full_name
+			%br
+			= current_user.email
+			%br
+			= current_user.date_of_birth.strftime("%d %B %Y") 
+			%br
+			=current_user.country
+			%br
+			= link_to 'Edit Account', edit_user_registration_path, class: 'btn btn-primary'
+
+		.col-8
+			%h3 My Bicycles
+			-	current_user.bicycles.each do |bike|
+				= link_to bike.name, bicycle_path(bike)
+				%br
