@@ -14,8 +14,10 @@
         %a.nav-link.disabled{:href => "#"} Disabled
     %form.form-inline.my-2.my-lg-0
       = form_tag("/bicycles", method: "get", remote: true) do
-        = text_field_tag :search, params[:search], class: 'form-control mr-sm-2', placeholder: 'Serach'
+        = text_field_tag :query, params[:query], class: 'form-control mr-sm-2', placeholder: 'Serach'
+        = select_tag 'category_id', options_for_select(Category.all.collect{ |u| [u.name, u.id] }), class: 'form-control mr-2'
         %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
+
       .nav-item
         - if user_signed_in?
           = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do

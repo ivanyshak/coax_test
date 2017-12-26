@@ -4,7 +4,7 @@ class BicyclesController < ApplicationController
     # GET /photos
     # GET /photos.json
     def index
-      @bicycles = Bicycle.search(params[:search]).paginate(:page => params[:page], :per_page => 6)
+      @bicycles = Bicycle.search(params)
       authorize @bicycles
     end
 

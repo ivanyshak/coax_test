@@ -5,11 +5,13 @@ class Bicycle < ApplicationRecord
   belongs_to :user
   validates :name, uniqueness: true
 
-	def self.search(search)
-	  if search
-	    Bicycle.where('name LIKE :query OR description LIKE :query', query: "%#{search.downcase}%")
-	  else
-	    Bicycle.all
-	  end
+
+	scope :filter,   		 ->(query)    { where('name ILIKE :query OR description ILIKE :query', query: "%#{query.downcase}%") if query.present?}
+	scope :w_category,   ->(type)     { where(category_id: type) if type.present? }
+
+  def self.search(params)
+    filter(params[:query])
+    	.w_category(params[:category_id])
+	    .paginate(page: params[:page], per_page: 6)
 	end
 end
