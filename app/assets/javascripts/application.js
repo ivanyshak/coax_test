@@ -12,7 +12,13 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require bootstrap
 //= require jquery
+//= require bootstrap
 //= require cocoon
 //= require_tree .
+
+$(document).on("turbolinks:load", function() {
+  $('form.search').on('keyup change', '#query, #category_id', function(){
+  	Rails.fire($(this).closest('form').get(0), 'submit');
+  })
+});

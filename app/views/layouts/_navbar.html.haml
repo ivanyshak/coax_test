@@ -12,18 +12,17 @@
         %a.nav-link{href: "#{home_profile_path}"} My Account
       %li.nav-item
         %a.nav-link.disabled{:href => "#"} Disabled
-    %form.form-inline.my-2.my-lg-0
-      = form_tag("/bicycles", method: "get", remote: true) do
-        = text_field_tag :query, params[:query], class: 'form-control mr-sm-2', placeholder: 'Serach'
-        = select_tag 'category_id', options_for_select(Category.all.collect{ |u| [u.name, u.id] }), class: 'form-control mr-2'
-        %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
+    
+    = form_tag("/bicycles", method: :get, remote: true, class: 'form-inline search my-2 my-lg-0') do
+      = text_field_tag :query, params[:query], class: 'form-control mr-sm-2', placeholder: 'Serach'
+      = select_tag 'category_id', options_for_select(Category.all.collect{ |u| [u.name, u.id] }), class: 'form-control mr-2', prompt: 'Select category'
 
-      .nav-item
-        - if user_signed_in?
-          = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
-            %span.fa.fa-sign-out
-              Log out 
-        - else
-          = link_to new_user_session_path, class: 'nav-link' do
-            %span.fa.fa-sign-in
-              Log in
+    .nav-item
+      - if user_signed_in?
+        = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
+          %span.fa.fa-sign-out
+            Log out 
+      - else
+        = link_to new_user_session_path, class: 'nav-link' do
+          %span.fa.fa-sign-in
+            Log in
